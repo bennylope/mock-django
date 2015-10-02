@@ -1,26 +1,14 @@
 language: python
-python:
-  - "2.6"
-  - "2.7"
-  - "3.2"
-  - "3.3"
-  - "3.4"
-  - "pypy"
-  - "pypy3"
+python: 2.7
 env:
-  - DJANGO=1.4.13
-  - DJANGO=1.5.8
-  - DJANGO=1.6.5
-  - DJANGO=1.7.0
-  - DJANGO=1.8.0
-  - DJANGO=1.9a1
+  - TOX_ENV=py34-django19
+  - TOX_ENV=py34-django18
+  - TOX_ENV=py27-django19
+  - TOX_ENV=py27-django18
+  - TOX_ENV=pypy-django19
+  - TOX_ENV=pypy-django18
 install:
-  - sudo apt-get install libevent-dev
-  - sudo pip install Django==$DJANGO --use-mirrors
-  - sudo pip install pep8 --use-mirrors
-  - sudo pip install https://github.com/dcramer/pyflakes/tarball/master
-  - sudo pip install -e . --use-mirrors
+  - pip install tox
 script:
-  - "sudo pep8 --ignore=E501,E225 mock_django"
-  - sudo pyflakes -x W mock_django
-  - sudo python setup.py test
+  - tox -e $TOX_ENV
+sudo: false
