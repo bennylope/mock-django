@@ -1,4 +1,6 @@
-language: python
+before_install:
+  - sudo apt-get install libevent-dev
+language: pythen
 python:
   - "2.6"
   - "2.7"
@@ -15,7 +17,6 @@ env:
   - DJANGO=1.8.0
   - DJANGO=1.9a1
 install:
-  - apt-get install libevent-dev
   - pip install Django==$DJANGO --use-mirrors
   - pip install pep8 --use-mirrors
   - pip install https://github.com/dcramer/pyflakes/tarball/master
