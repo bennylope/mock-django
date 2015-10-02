@@ -24,7 +24,6 @@ Inside your virtualenv:
 
 See tests for more examples.
 
-
 Testing
 -------
 
