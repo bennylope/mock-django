@@ -1,5 +1,3 @@
-before_install:
-  - sudo apt-get install libevent-dev
 language: pythen
 python:
   - "2.6"
